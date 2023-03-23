@@ -34,7 +34,7 @@ def iniciar_cidades():
     new_city = None
     city_id = 0
 
-    print('Cities map:\n')
+    print('\nCities map:\n')
 
     for city in MOVEMENT_ARRAY:
         new_city = Cidade(city_id)
@@ -59,11 +59,31 @@ def go_from_to(start_city,final_city):
     final_distance = cities[start_city].go_to(final_city)
 
     if final_distance == 6:
-        print(f"You can't reach city {final_city} from city {start_city}.")
+        print(f"\nYou can't reach city {final_city} from city {start_city}.\n")
     else:
-        print(f"The shortest distance between city {start_city} and city {final_city} is {final_distance} units.")
+        print(f"\nThe shortest distance between city {start_city} and city {final_city} are {final_distance} move.\n")
 
 
-iniciar_cidades()
+def main_menu():
+    response = 0
 
-go_from_to(5, 2)
+    while response != '2':
+        print('       Chose one option:')
+        print('(1) Go from one city to another')
+        print('   (2) Stop the application\n')
+
+        response = input()
+        
+        match response:
+            case '1':
+                iniciar_cidades()
+                start_city = int(input('Chose the starting city: '))
+                final_city = int(input('Chose the destination city: '))
+                go_from_to(start_city, final_city)
+            case '2':
+                pass
+            case _:
+                print('Invalid')
+
+if __name__ == '__main__':
+    main_menu()
