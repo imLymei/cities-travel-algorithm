@@ -75,7 +75,7 @@ def main_menu():
         print('(1) Go from one city to another')
         print('   (2) Stop the application\n')
 
-        response = input()
+        response = input('             ')
         
         match response:
             case '1':
